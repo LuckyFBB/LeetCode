@@ -16,7 +16,24 @@ return [0, 1].
 ```
 > 解题思路
 
-先定义一个Array类型的数据结构obj，它的index为target - numbers[i]，value为索引。然后每次都看看obj[numbers[i]] 是否存在，如果存在，那我们就找到了这样的一组数据，返回当前索引以及obj[numbers[i]]。
+思路1: 两层循环，暴力解法
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function (nums, target) {
+  for (let i = 0; i < nums.length - 1; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      if (nums[i] + nums[j] === target)
+        return [i, j]
+    }
+  }
+};
+```
+
+思路2: 先定义一个Array类型的数据结构obj，它的index为target - numbers[i]，value为索引。然后每次都看看obj[numbers[i]] 是否存在，如果存在，那我们就找到了这样的一组数据，返回当前索引以及obj[numbers[i]]。
 
 时间复杂度O(N)
 
