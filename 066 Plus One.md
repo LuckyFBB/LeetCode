@@ -1,0 +1,50 @@
+> 原文链接
+
+[https://leetcode.com/problems/plus-one/](https://leetcode.com/problems/plus-one/)
+
+> 题目内容
+
+Given a non-empty array of digits representing a non-negative integer, plus one to the integer.
+
+The digits are stored such that the most significant digit is at the head of the list, and each element in the array contain a single digit.
+
+You may assume the integer does not contain any leading zero, except the number 0 itself.
+
+Example 1:
+
+```
+Input: [1,2,3]
+Output: [1,2,4]
+Explanation: The array represents the integer 123.
+```
+
+Example 2:
+
+```
+Input: [4,3,2,1]
+Output: [4,3,2,2]
+Explanation: The array represents the integer 4321.
+```
+
+> 解题思路
+
+数组从末尾开始判断当前数字是否为 9，不为 9 直接加 1 返回，为 9 就赋值为 0，继续遍历。
+
+时间复杂度O(N)
+```js
+/**
+ * @param {number[]} digits
+ * @return {number[]}
+ */
+var plusOne = function(digits) {
+  for (let i = digits.length - 1; i >= 0; i--) {
+    if (digits[i] === 9) {
+      digits[i] = 0;
+    } else {
+      digits[i] += 1;
+      return digits;
+    }
+  }
+  return [1, ...digits];
+};
+```
