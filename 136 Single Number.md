@@ -23,6 +23,7 @@ Output: 4
 
 > 解题思路
 
+- 思路一
 ```js
 /**
  * @param {number[]} nums
@@ -39,5 +40,20 @@ var singleNumber = function (nums) {
     }
   }
   return number[0]
+};
+```
+
+- 思路二
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var singleNumber = function(nums) {
+  const map = {};
+  nums.forEach(_ => (map[_] ? map[_]++ : (map[_] = 1)));
+  for (let n in map) {
+    if (map[n] === 1) return Number(n);
+  }
 };
 ```
