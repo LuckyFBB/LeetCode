@@ -2,7 +2,7 @@
  * @Author: FBB
  * @Date: 2020-04-09 21:56:46
  * @LastEditors: FBB
- * @LastEditTime: 2020-04-09 21:59:26
+ * @LastEditTime: 2020-04-11 14:17:42
  * @Description:
  -->
 
@@ -58,8 +58,9 @@ Explanation: S becomes "c" while T becomes "b".
 
 > 解题思路
 
-- 思路1
-对#字符前的数据进行删除之后得到字符串，然后再两者比较
+- 思路 1
+  对#字符前的数据进行删除之后得到字符串，然后再两者比较
+
 ```js
 /**
  * @param {string} S
@@ -76,5 +77,26 @@ var removeEmpty = function (str) {
     idx === 0 ? arr.splice(idx, 1) : arr.splice(idx - 1, 2);
   }
   return arr.join("");
+};
+```
+
+- 思路 2
+  使用栈，遇到#将栈的顶部元素删除，否在压入栈中，最后返回栈
+
+```js
+/**
+ * @param {string} S
+ * @param {string} T
+ * @return {boolean}
+ */
+var backspaceCompare = function (S, T) {
+  return removeEmpty(S) === removeEmpty(T);
+};
+var removeEmpty = function (str) {
+  const stack = [];
+  for (const s of str) {
+    s === "#" ? stack.pop() : stack.push(s);
+  }
+  return stack.join("");
 };
 ```
