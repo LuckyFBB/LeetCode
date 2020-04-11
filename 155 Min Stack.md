@@ -29,7 +29,7 @@ minStack.getMin();   --> Returns -2.
 - 思路：数组模拟栈
 
 ```js
-var MinStack = function() {
+var MinStack = function () {
   this.stack = [];
 };
 
@@ -37,28 +37,29 @@ var MinStack = function() {
  * @param {number} x
  * @returns {void}
  */
-MinStack.prototype.push = function(x) {
+MinStack.prototype.push = function (x) {
   this.stack.push(x);
 };
 
 /**
  * @returns {void}
  */
-MinStack.prototype.pop = function() {
+MinStack.prototype.pop = function () {
   this.stack.pop();
 };
 
 /**
  * @returns {number}
  */
-MinStack.prototype.top = function() {
+MinStack.prototype.top = function () {
   return this.stack[this.stack.length - 1];
 };
 
 /**
  * @returns {number}
  */
-MinStack.prototype.getMin = function() {
+MinStack.prototype.getMin = function () {
   return Math.min.apply(null, this.stack);
+  //return Math.min(...this.stack);
 };
 ```
