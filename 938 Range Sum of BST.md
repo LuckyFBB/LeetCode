@@ -2,56 +2,69 @@
  * @Author: FBB
  * @Date: 2020-04-20 15:52:06
  * @LastEditors: FBB
- * @LastEditTime: 2020-04-20 15:52:13
- * @Description: 
+ * @LastEditTime: 2020-04-20 16:02:38
+ * @Description:
  -->
+
 > 原文链接
 
-[https://leetcode.com/problems/sort-array-by-parity-ii/](https://leetcode.com/problems/sort-array-by-parity-ii/)
+[https://leetcode.com/problems/range-sum-of-bst/](https://leetcode.com/problems/range-sum-of-bst/)
+
 > 题目内容
 
-Given an array A of non-negative integers, half of the integers in A are odd, and half of the integers are even.
+Given the root node of a binary search tree, return the sum of values of all nodes with value between L and R (inclusive).
 
-Sort the array so that whenever A[i] is odd, i is odd; and whenever A[i] is even, i is even.
-
-You may return any answer array that satisfies this condition.
+The binary search tree is guaranteed to have unique values.
 
 **Example 1:**
 
 ```
-Input: [4,2,5,7]
-Output: [4,5,2,7]
-Explanation: [4,7,2,5], [2,5,4,7], [2,7,4,5] would also have been accepted.
+Input: root = [10,5,15,3,7,null,18], L = 7, R = 15
+Output: 32
+```
+
+**Example 2:**
+
+```
+Input: root = [10,5,15,3,7,13,18,1,null,6], L = 6, R = 10
+Output: 23
 ```
 
 **Note:**
-- 2 <= A.length <= 20000
-- A.length % 2 == 0
-- 0 <= A[i] <= 1000
+
+The number of nodes in the tree is at most 10000.
+The final answer is guaranteed to be less than 2^31.
 
 > 解题思路
 
+- 思路 1
+  按着二叉树的递归三原则
+  1. 找到结束条件：root 为 null
+  2. 找到要返回的值：sum
+  3. 在此递归中需要做什么：L< val < R 时，sum+=val
+
 ```js
 /**
- * @param {number[]} A
- * @return {number[]}
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
  */
-var sortArrayByParityII = function(A) {
-  //降序排序
-  A.sort((a, b) => { a - b })
-  //声明空数组
-  let result = []
-  let odd = 1
-  let even = 0
-  A.forEach(element => {
-    if (element % 2 == 1) {
-      result[odd] = element
-      odd += 2
-    } else {
-      result[even] = element
-      even += 2
-    }
-  });
-  return result
+/**
+ * @param {TreeNode} root
+ * @param {number} L
+ * @param {number} R
+ * @return {number}
+ */
+var rangeSumBST = function (root, L, R) {
+  const sum = 0;
+  if (!root) return sum;
+  const { val, left, right } = root;
+  return (
+    (val >= L && val <= R ? sum + val : sum) +
+    (val > L ? rangeSumBST(left, L, R) : 0) +
+    (val < R ? rangeSumBST(right, L, R) : 0)
+  );
 };
 ```
