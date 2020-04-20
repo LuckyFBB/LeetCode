@@ -2,13 +2,13 @@
  * @Author: FBB
  * @Date: 2020-04-20 15:00:52
  * @LastEditors: FBB
- * @LastEditTime: 2020-04-20 15:04:24
+ * @LastEditTime: 2020-04-20 15:52:40
  * @Description:
  -->
 
 > 原文链接
 
-[https://leetcode.com/problems/gray-code/](https://leetcode.com/problems/gray-code/)
+[https://leetcode.com/problems/same-tree/](https://leetcode.com/problems/same-tree/)
 
 > 题目内容
 
