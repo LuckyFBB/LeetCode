@@ -2,7 +2,7 @@
  * @Author: FBB
  * @Date: 2020-04-14 22:12:12
  * @LastEditors: FBB
- * @LastEditTime: 2020-04-14 22:20:51
+ * @LastEditTime: 2020-04-24 21:06:21
  * @Description:
  -->
 
@@ -11,7 +11,8 @@
 [https://leetcode.com/problems/contiguous-array/](https://leetcode.com/problems/contiguous-array/)
 
 > 题目内容
-> Given a binary array, find the maximum length of a contiguous subarray with equal number of 0 and 1.
+
+Given a binary array, find the maximum length of a contiguous subarray with equal number of 0 and 1.
 
 **Example 1:**
 
